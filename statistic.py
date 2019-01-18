@@ -3,6 +3,10 @@ import prettytable as pt
 from colorama import Fore,Style
 import pandas as pd
 import csv
+import os
+
+ff=os.path.dirname(__file__)
+
 class FileAnalysis:
     def __init__(self):
         self.TLine=0 # 总代码行
@@ -140,7 +144,8 @@ class FileAnalysis:
     def saveCSV(self, data_list, isOne=False):
         # newline=''防止写入留空行问题
         # 追加写入
-        with open("data.csv", "a+", encoding='utf_8_sig',newline='') as cf:
+        file = ff + '/file/data.csv'
+        with open(file, "a+", encoding='utf_8_sig',newline='') as cf:
             writer = csv.writer(cf)
             # 如果是第一次写入，就写head,后面就正常写入
             if isOne:
@@ -148,14 +153,16 @@ class FileAnalysis:
             writer.writerow(data_list)
     # 排序
     def codeSort(self,c_name='实际代码量'):
-        df = pd.DataFrame(pd.read_csv('./data.csv',encoding='utf_8_sig'))
+        file = ff+'/file/data.csv'
+        df = pd.DataFrame(pd.read_csv(file,encoding='utf_8_sig'))
         # print(df)
         # lc.sort(["loan_amnt"], ascending=True).head(10)
         print(df.sort_values(c_name,ascending=False,inplace=True))
         print(df.head(10))
         print(df.describe())
         print(df.sum())
-        df.to_csv('./sort_data.csv',encoding='utf_8_sig',index=False)
+        file2 = ff+'/file/sort_data.csv'
+        df.to_csv(file2,encoding='utf_8_sig',index=False)
 
 dir = './code_dir'
 fa = FileAnalysis()

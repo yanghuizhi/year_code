@@ -53,6 +53,8 @@ dir = './code_dir' # 你的代码文件夹或者代码文件
 
 运行`statistic.py`文件，然后会打印输出结果，并得到原统计数据data.csv以及排序结果数据sort_data.csv。
 
+且文件都会到file文件夹里
+
 - **定制**
 
 ```python
