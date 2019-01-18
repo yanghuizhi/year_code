@@ -133,7 +133,7 @@ class FileAnalysis:
         tb.add_column(Fore.LIGHTMAGENTA_EX+'实际代码比率'+Fore.RESET,self.actual_rate)
         tb.add_column(Fore.LIGHTMAGENTA_EX+'总注释比率'+Fore.RESET,self.comment_rate)
         tb.add_column(Fore.LIGHTMAGENTA_EX+'总空行比率'+Fore.RESET,self.black_rate)
-        print(Fore.RED+"-----------------------------------------------光城18年9月份以后部分python代码统计结果-----------------------------------------------")
+        print(Fore.RED+"-----------------------------------------------智哥18年12月份以后部分python代码统计结果-----------------------------------------------")
         print(Style.RESET_ALL)
         print(tb)
         print(Style.RESET_ALL)
